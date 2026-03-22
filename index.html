@@ -8,6 +8,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400&display=swap" rel="stylesheet">
 </head>
 <body>
+    
     <header id="header">
         
         
@@ -50,5 +51,118 @@
 
     </header>
     
+    <div class="carrosel-wrapper">
+        <div class="carrosel-track" id="track"></div>
+        <button class="btn-nav btn-prev" id="btnPrev">&#8592;</button>
+        <button class="btn-nav btn-next" id="btnNext">&#8594;</button>
+        <div class="dots" id="dots"></div>
+        <div class="contador" id="contador"></div>
+    </div>
+
+    <div class="ticker">
+        <div class="ticker-inner">
+            <span>📦 Retirada em <strong>até 72h</strong></span>
+            <span class="sep">|</span>
+            <span>✨ <strong>15% OFF</strong> em compras no Pix</span>
+            <span class="sep">|</span>
+            <span>🚚 <strong>Frete Grátis</strong> acima de R$ 150</span>
+            <span class="sep">|</span>
+            <span>💳 Até <strong>4x sem juros</strong> no cartão</span>
+            <span class="sep">|</span>
+            <span>📦 Retirada em <strong>até 72h</strong></span>
+            <span class="sep">|</span>
+            <span>✨ <strong>15% OFF</strong> em compras no Pix</span>
+            <span class="sep">|</span>
+            <span>🚚 <strong>Frete Grátis</strong> acima de R$ 150</span>
+            <span class="sep">|</span>
+            <span>💳 Até <strong>4x sem juros</strong> no cartão</span>
+            <span class="sep">|</span>
+
+            <span>📦 Retirada em <strong>até 72h</strong></span>
+            <span class="sep">|</span>
+            <span>✨ <strong>15% OFF</strong> em compras no Pix</span>
+            <span class="sep">|</span>
+            <span>🚚 <strong>Frete Grátis</strong> acima de R$ 150</span>
+            <span class="sep">|</span>
+            <span>💳 Até <strong>4x sem juros</strong> no cartão</span>
+            <span class="sep">|</span>
+            <span>📦 Retirada em <strong>até 72h</strong></span>
+            <span class="sep">|</span>
+            <span>✨ <strong>15% OFF</strong> em compras no Pix</span>
+            <span class="sep">|</span>
+            <span>🚚 <strong>Frete Grátis</strong> acima de R$ 150</span>
+            <span class="sep">|</span>
+            <span>💳 Até <strong>4x sem juros</strong> no cartão</span>
+            <span class="sep">|</span>
+
+            <span>📦 Retirada em <strong>até 72h</strong></span>
+            <span class="sep">|</span>
+            <span>✨ <strong>15% OFF</strong> em compras no Pix</span>
+            <span class="sep">|</span>
+            <span>🚚 <strong>Frete Grátis</strong> acima de R$ 150</span>
+            <span class="sep">|</span>
+            <span>💳 Até <strong>4x sem juros</strong> no cartão</span>
+            <span class="sep">|</span>
+            <span>📦 Retirada em <strong>até 72h</strong></span>
+            <span class="sep">|</span>
+            <span>✨ <strong>15% OFF</strong> em compras no Pix</span>
+            <span class="sep">|</span>
+            <span>🚚 <strong>Frete Grátis</strong> acima de R$ 150</span>
+            <span class="sep">|</span>
+            <span>💳 Até <strong>4x sem juros</strong> no cartão</span>
+            <span class="sep">|</span>
+        </div>
+    </div>
+
+    <script>
+        const images = [
+            'IMG/imagem slide 1.png',
+            'IMG/imagem slide 2.png',
+            'IMG/imagem slide 3.png',
+            'IMG/imagem slide 4.png',
+        ];
+
+        const track = document.getElementById('track');
+        const dotsEl = document.getElementById('dots');
+        const contadorEl = document.getElementById('contador');
+
+        let current = 0;
+        let interval = 10000;
+        let autoTimer;
+
+        images.forEach((src, i) => {
+            const slide = document.createElement('div');
+            slide.className = 'slide';
+            const img = document.createElement('img');
+            img.src = src; img.alt = `Slide ${i+1}`; img.draggable = false;
+            slide.appendChild(img);
+            track.appendChild(slide);
+ 
+            const dot = document.createElement('button');
+            dot.className = 'dot' + (i === 0 ? ' active' : '');
+            dot.setAttribute('aria-label', `Slide ${i+1}`);
+            dot.addEventListener('click', () => goTo(i));
+            dotsEl.appendChild(dot);
+        });
+
+        function goTo(n) {
+            current = (n + images.length) % images.length;
+            track.style.transform = `translateX(-${current * 100}%)`;
+            contadorEl.textContent = `${current + 1} / ${images.length}`;
+            dotsEl.querySelectorAll('.dot').forEach((d, i) =>
+                d.classList.toggle('active', i === current));
+            resetAuto();
+        }
+
+        contadorEl.textContent = `1 / ${images.length}`;
+ 
+        document.getElementById('btnPrev').addEventListener('click', () => goTo(current - 1));
+        document.getElementById('btnNext').addEventListener('click', () => goTo(current + 1));
+
+        function startAuto() { autoTimer = setInterval(() => goTo(current + 1), interval); }
+        function resetAuto()  { clearInterval(autoTimer); startAuto(); }
+        startAuto();
+    </script>
+
 </body>
 </html>
