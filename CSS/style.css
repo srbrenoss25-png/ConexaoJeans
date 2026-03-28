@@ -141,6 +141,7 @@ nav ul li a:hover {
     display: flex;
     border-radius: 6px;
     transition: background 0.3s ease;
+    text-decoration: none;
 }
 
 .carrosel-wrapper{
