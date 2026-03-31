@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "A ConexãoJeans conecta você ao melhor da moda jeans: estilo, conforto e atitude em cada peça. Nossa missão é oferecer qualidade e autenticidade para valorizar sua identidade. Buscamos ser referência em jeans online, com inovação, respeito ao cliente e paixão por estilo. 👖✨",
   "main": "server.js",
+  "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js"
