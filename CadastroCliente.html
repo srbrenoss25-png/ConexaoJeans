@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro - SuporteXD</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-attachment: fixed;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+
+        .signup-wrapper {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 100%;
+            max-width: 450px;
+        }
+
+        .logo {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .logo img {
+            width: 300px;
+            height: auto;
+            filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.2));
+        }
+
+        .signup-container {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            padding: 60px 40px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            width: 100%;
+            max-width: 450px;
+            backdrop-filter: blur(10px);
+        }
+
+
+        section {
+            margin: 60px 0;
+            padding: 40px;
+            background-color: transparent;
+            border-radius: 10px;
+            transition: background-color 0.3s ease;
+        }
+
+
+        .back-link {
+            display: inline-block;
+            margin-bottom: 20px;
+            color: rgb(63, 63, 245);
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .back-link:hover {
+            transform: translateX(-5px);
+        }
+
+        .header-text {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .header-text h2 {
+            color: rgb(0, 0, 0);
+            font-size: 28px;
+            margin-bottom: 8px;
+        }
+
+        .header-text p {
+            color: #666;
+            font-size: 14px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            color: #333;
+            font-weight: 600;
+            font-size: 15px;
+        }
+
+        input {
+            width: 100%;
+            padding: 12px 15px;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            font-size: 15px;
+            font-family: inherit;
+            transition: all 0.3s ease;
+        }
+
+        input:focus {
+            outline: none;
+            border-color: rgb(63, 63, 245);
+            box-shadow: 0 0 0 3px rgba(63, 63, 245, 0.1);
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+        }
+
+        .form-row .form-group {
+            margin-bottom: 0;
+        }
+
+        .terms-group {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            margin-bottom: 25px;
+            font-size: 13px;
+        }
+
+        .terms-group input[type="checkbox"] {
+            width: auto;
+            margin: 0;
+            cursor: pointer;
+            margin-top: 3px;
+            flex-shrink: 0;
+        }
+
+        .terms-group label {
+            margin: 0;
+            font-weight: normal;
+            color: #666;
+        }
+
+        .terms-group a {
+            color: rgb(0, 0, 0);
+            text-decoration: none;
+        }
+
+        .terms-group a:hover {
+            text-decoration: underline;
+        }
+
+        .signup-btn {
+            width: 100%;
+            padding: 14px;
+            background: linear-gradient(135deg, rgb(63, 63, 245) 0%, rgb(50, 50, 200) 100%);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-bottom: 15px;
+        }
+
+        .signup-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(63, 63, 245, 0.4);
+        }
+
+        .signup-btn:active {
+            transform: translateY(0);
+        }
+
+        .login-link {
+            text-align: center;
+            color: #666;
+            font-size: 14px;
+        }
+
+        .login-link a {
+            color: rgb(0, 0, 0);
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .login-link a:hover {
+            text-decoration: underline;
+        }
+
+        .btn-continuar {
+            background: rgb(63, 63, 245);
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            font-size: 16px;
+            font-weight: 600;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .btn-continuar:hover {
+            background: rgb(50, 50, 200);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(63, 63, 245, 0.4);
+        }
+
+        .btn-sair-alerta {
+            background: #ccc;
+            color: #333;
+            border: none;
+            padding: 12px 30px;
+            font-size: 16px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .btn-sair-alerta:hover {
+            background: #999;
+        }
+
+
+        @media (max-width: 480px) {
+            .signup-container {
+                padding: 40px 25px;
+            }
+
+            .header-text h2 {
+                font-size: 22px;
+            }
+
+            .form-row {
+                grid-template-columns: 1fr;
+                gap: 0;
+            }
+
+            input {
+                padding: 12px;
+                font-size: 14px;
+            }
+
+            .signup-btn {
+                padding: 12px;
+                font-size: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="signup-wrapper">
+        <div class="logo">
+            <img src="IMG/logo.png" alt="Logo ConexaoJeans">
+        </div>
+        
+        <div class="signup-container">
+            <a href="index.html" class="back-link">← Voltar</a>
+            
+            <div class="header-text">
+                <h2>Criar Conta</h2>
+            </div>
+
+            <form id="signupForm">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="firstName">Primeiro Nome</label>
+                        <input type="text" id="firstName" name="firstName" required placeholder="Seu nome">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="lastName">Sobrenome</label>
+                        <input type="text" id="lastName" name="lastName" required placeholder="Seu sobrenome">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" required placeholder="Digite seu email">
+                </div>
+
+                <div class="form-group">
+                    <label for="CPF">CPF</label>
+                    <input type="text" id="CPF" autocomplete="off" required placeholder="Digite seu CPF">
+                </div>
+
+                <div class="form-group">
+                    <label for="username">Usuário</label>
+                    <input type="text" id="username" name="username" required placeholder="Escolha um usuário">
+                </div>
+
+                <div class="form-group">
+                    <label for="password">Senha</label>
+                    <input type="password" id="password" name="password" required placeholder="Crie uma senha forte">
+                </div>
+
+                <div class="form-group">
+                    <label for="confirmPassword">Confirmar Senha</label>
+                    <input type="password" id="confirmPassword" name="confirmPassword" required placeholder="Confirme sua senha">
+                </div>
+
+                <div class="terms-group">
+                    <input type="checkbox" id="terms" name="terms" required>
+                    <label for="terms">Eu concordo com os <a href="#"><strong>Termos de Serviço</strong></a> e <a href="#"><strong>Política de Privacidade</strong></a></label>
+                </div>
+
+                <button type="submit" class="signup-btn">Criar Conta</button>
+            </form>
+
+            <div class="login-link">
+                Já tem conta? <a href="LoginCliente.html">Faça login aqui</a>
+            </div>
+        </div>
+    </div>
+    <script>
+        const cpfInput = document.getElementById('CPF')  
+
+        cpfInput.addEventListener('input', (e) => {
+        
+            let value = cpfInput.value.replace(/\D/g, '')
+
+           
+            if (value.length <= 3) {
+                cpfInput.value = value
+            } else if (value.length <= 6) {
+                cpfInput.value = value.slice(0,3) + '.' + value.slice(3)
+            } else if (value.length <= 9) {
+                cpfInput.value = value.slice(0,3) + '.' + value.slice(3,6) + '.' + value.slice(6)
+            } else {
+                cpfInput.value = value.slice(0,3) + '.' + value.slice(3,6) + '.' + value.slice(6,9) + '-' + value.slice(9,11)
+            }
+        })
+    </script>
+</body>
+</html>
