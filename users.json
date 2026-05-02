@@ -1,0 +1,20 @@
+[
+  {
+    "id": 1,
+    "firstName": "Vitor Hugo",
+    "lastName": "Aragão Cairo",
+    "email": "vitor@gmail.com",
+    "cpf": "123.123.123-12",
+    "username": "vitorzao12",
+    "created_at": "2026-04-05 18:33:03"
+  },
+  {
+    "id": 2,
+    "firstName": "Vitor",
+    "lastName": "Hugo",
+    "email": "vitor2@gmail.com",
+    "cpf": "123.123.123-13",
+    "username": "vvv",
+    "created_at": "2026-05-02 17:45:53"
+  }
+]
